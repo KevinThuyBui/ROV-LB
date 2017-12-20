@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from i2c_master import Arduino, registers
+from pi.i2c_master import Arduino, registers
 import RPi.GPIO as GPIO
 import time
 
@@ -19,7 +19,7 @@ def rotate_left(channel):
             ard.send('-255', register=registers['LEFT_THRUSTER'])
         else:
             ard.send('10', register=registers['RIGHT_THRUSTER'])
-            ard.send('-10', register=registers['LEFT_THURSTER'])
+            ard.send('-10', register=registers['LEFT_THRUSTER'])
         time.sleep(0.1)
     ard.send('0', register=registers['RIGHT_THRUSTER'])
     ard.send('0', register=registers['LEFT_THRUSTER'])
